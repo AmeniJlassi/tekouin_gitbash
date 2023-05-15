@@ -1,0 +1,37 @@
+sum=0
+nb=0
+
+echo "Enter your note (press q to quit) :"
+read nt
+
+until [[ $nt == "q" ]]; do
+    if (( nt >= 0 )); then
+        ((sum += nt)) && ((nb += 1))
+        if (( nt >= 16 )); then
+            echo "$nt"
+            echo "very good"
+        elif (( nt >= 14 && nt < 16 )); then
+            echo "$note"
+            echo "good"
+        elif (( nt >= 10 && nt < 12 )); then
+            echo "$t"
+            echo "medium"
+	elif ((nt >= 12 && nt < 14 )); then
+            echo "nt"
+            echo "good enough"
+        else
+            echo "$t"
+            echo "insufficient"
+        fi
+    fi
+    echo "Enter your note (press q to quit) :"
+    read nt
+done
+echo "q"
+echo "Good bye !"
+if (( nb > 0 )); then
+    avg=$((sum/nb))
+    echo "Your average is $avg ($nb notes)"
+else
+    echo  "Good bye !"
+fi
